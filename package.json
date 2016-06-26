@@ -1,0 +1,28 @@
+{
+  "name": "company_wiki",
+  "version": "1.0.0",
+  "description": "![alt=wiki-wireframe](https://github.com/taniaallen/CompanyWiki/blob/a2c14d91ce85c5b500a62f1f5cab48eedd9d9639/0624161422-2.jpg)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taniaallen/CompanyWiki.git"
+  },
+  "author": "tania allen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taniaallen/CompanyWiki/issues"
+  },
+  "homepage": "https://github.com/taniaallen/CompanyWiki#readme",
+  "dependencies": {
+    "bcrypt": "^0.8.7",
+    "body-parser": "^1.15.2",
+    "ejs": "^2.4.2",
+    "express": "^4.14.0",
+    "express-session": "^1.13.0",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.5.2"
+  }
+}
