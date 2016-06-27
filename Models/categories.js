@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var articleSchema = require('./models/articles.js').schema;
+var articleSchema = require('./articles.js').schema;
 
 
 var categorySchema = mongoose.Schema({
