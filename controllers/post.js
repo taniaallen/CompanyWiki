@@ -54,7 +54,16 @@ router.get('/:id/show/:post_id', function(req,res) {
 });
 
 
+// Route to go back to the main page from the post show page when clicking the "main page" button
 
+router.get('/:id/main', function(req,res) {
+	User.findById(req.params.id, function(err, user) {
+		// console.log(req.params.id);  check that the req.params.id is crossing for the user
+		res.render('users/main.ejs', {
+			data:user
+		});
+	});
+});
 
 
 
