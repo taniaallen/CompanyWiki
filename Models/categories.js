@@ -3,7 +3,7 @@ var articleSchema = require('./articles.js').schema;
 
 
 var categorySchema = mongoose.Schema({
-	category: String,
+	categories: String,
 	articles: [articleSchema]
 });
 

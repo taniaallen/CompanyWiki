@@ -1,0 +1,17 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<h1><%=data.author%>'s' Posted Articles</h1>
+
+	<div>
+		<% for(var i = 0; i < data.articles.length; i++) { %>
+			<a href="/posts/<%=data._id%>/show/<%=data.articles[i]._id%>"><li><%=data.articles[i].title%></li></a>
+		<% } %>
+
+	</div>
+	<br/>
+	<a href="/login"><button>Main Page</button></a>
+</body>
+</html>

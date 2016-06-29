@@ -33,13 +33,13 @@ app.use(bodyParser.urlencoded({ extended:false }));
 
 app.use('/login', loginController);
 app.use('/users', userController);
-app.use('/post', postController);
+app.use('/posts', postController);
 
 
 
-// app.get('/', function(req,res) {				// tested the route.
-	// res.render('../views/login.ejs');
-// });
+app.get('/', function(req,res) {				// tested the route.
+	res.render('login/login.ejs');
+});
 
 
 

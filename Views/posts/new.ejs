@@ -1,0 +1,22 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<h1>Submit a new Post</h1>
+
+	<form action="/posts/<%=data._id%>/new" method="POST">
+		<input type="text" name="title" value="title"><br/>
+		<textarea name="body" value="body" rows=30 cols=50></textarea><br/>
+		<input type="checkbox" name="categories" value="Best Practices">Best Practices<br/>
+		<input type="checkbox" name="categories" value="Regulatory">Regulatory<br/>
+		<input type="checkbox" name="categories" value="Enhancements">Enhancements<br/>
+		<br/>
+		<input type="hidden" name="origAuthor" value="<%=data.author%>"><br/>
+		<input type="submit" value="Submit Post">
+	</form>
+
+	
+</body>
+</html>

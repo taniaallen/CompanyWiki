@@ -4,7 +4,25 @@
 </head>
 <body>
 	<h1>Marietta's Company Wiki</h1>
-	<h3>Categories</h3>
-	<p><%=data.name%></p>
+
+	<h2>Welcome <%= data.author %>!</h2>
+	<h3>Post Categories</h3>
+	<select id="dataset-select">
+		<option value="no_id" />Choose Category</option>
+		<option value="Best Practices"/>Best Practices</option>
+		<option value="Regulatory"/>Regulatory</option>
+		<option value="Enhancements"/>Enhancements</option>
+
+	</select>
+
+	<br/>
+	<br/>
+	
+	<div class="navigation-buttons">
+		<a href="/posts/<%=data._id%>/new"><button>Create Post</button></a>
+		<a href="/users/<%=data._id%>"><button>View your posts</button></a>
+		<button>Log Out</button>
+	</div>
+	
 </body>
 </html>
