@@ -39,7 +39,7 @@ app.use('/posts', postController);
 
 
 app.get('/', function(req,res) {				// tested the route.
-	res.render('login/login.ejs');
+	res.render('login.ejs');
 });
 
 
