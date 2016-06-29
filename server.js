@@ -54,5 +54,5 @@ mongoose.connection.once('open', function() {
 
 
 app.listen(port, function() {
-	console.log("I am listening master...");
+	console.log("server running on port " + port);
 });
