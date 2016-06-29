@@ -8,7 +8,8 @@ var session        = require('express-session');
 
 /* app settings  */
 var app  = express();
-var port = process.env.PORT || 3000
+var port = process.env.PORT || 3000;
+var mongoDBURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/wiki';
 
 app.use(session({
 	secret: 'lonestar',
@@ -45,7 +46,7 @@ app.get('/', function(req,res) {				// tested the route.
 
 /* Server  */
 
-mongoose.connect('mongodb://localhost:27017/wiki');
+mongoose.connect(mongoDBURI);
 
 mongoose.connection.once('open', function() {
 	console.log('the mongod connection is open.');
