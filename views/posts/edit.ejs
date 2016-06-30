@@ -12,20 +12,22 @@
 	<div class="header-container">
 		<h1>Edit Post</h1>
 	</div>
-	<h3>Original Post Preview:</h3>
+	<h3>Original Post:</h3>
 	<div class="preview-container">
 		<h4 class="preview-title"><%=article.title%></h4>
 		<section class="preview-section"><%=article.body%></section>
 	</div>
 
 	<div class="form-container">
-		<form action="/posts/<%=data._id%>/edit?_method" method="POST">
-			<input type="text" name="title" value="<%=article.title%>"><br/>		
-			<textarea name="body" value="body" rows=30 cols=50></textarea><br/>
+		<form action="/posts/<%=data._id%>/edit/<%=data.articles._id%>" method="POST">
+			<label for="title">Enter a title:</label>
+			<input id="title-bar" type="text" name="title" value="<%=article.title%>"><br/>		
+			<textarea name="body" value="body" placeholder="<%=data.articles.body%>" rows=30 cols=100></textarea><br/>
+			<h4 id="category-title">Select a Category</h4>
 			<div class="categories">
-				<input type="checkbox" name="categories" value="Best Practices">Best Practices<br/>
-				<input type="checkbox" name="categories" value="Regulatory">Regulatory<br/>
-				<input type="checkbox" name="categories" value="Enhancements">Enhancements<br/>
+				<input type="checkbox" name="categories" value="Best Practices">Best Practices
+				<input type="checkbox" name="categories" value="Regulatory">Regulatory
+				<input type="checkbox" name="categories" value="Enhancements">Enhancements
 			</div>
 
 			<br/>

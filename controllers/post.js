@@ -17,22 +17,19 @@ router.get('/:id/new', function(req,res) {
 		});
 });
 
-
-
-
 // Post new article
 
 router.post('/:id/new', function(req,res) {
-	User.findById(req.params.id, function(err,user) {
+	User.findById(req.params.id, function(err,user) {  // first find the user by the req.params.id
 		
-		Article.create(req.body, function(err,post) {
+		Article.create(req.body, function(err,post) {  // then create the article using the Article schema
 			Category.create({categories:post.categories, articles:[post]}, function(err,category) {
 
 			});
-			user.articles.push(post);
-			user.save(function(err) {
+			user.articles.push(post);  // push the new post to the user.articles array
+			user.save(function(err) {	// save the user changes
 				res.render('posts/show.ejs', {
-					data:user,
+					data:user,  // have to send the data to the show page so that the show page can render the post
 					article: post
 				});
 			});
@@ -68,8 +65,6 @@ router.get('/:id/main', function(req,res) {
 });
 
 
-
-
 // Route to the edit post page
 
 router.get('/:id/edit/:post_id', function(req,res) {
@@ -83,19 +78,23 @@ router.get('/:id/edit/:post_id', function(req,res) {
 	});
 });
 
+// Update the article in the edit page
 
 router.put('/:id/edit/:post_id', function(req,res) {
-	Article.findByIdAndUpdate(req.params.post_id, function(err, post) {
+	Article.findByIdAndUpdate(req.params.post_id, req.body, { new:true }, function(err, post) {
+
 		User.findById(req.params.id, function(err, user) {
 			for(var i = 0; i < user.articles.length; i++) {
 				if(user.articles[i].id === req.params.post_id) {
-					user.articles[i] = { _id: req.params.post_id, title:req.body.title, body:req.body.body, origAuthor:req.body.origAuthor, editAuthor:req.body.author,  }
-				} else{
-					res.redirect('posts/edit.ejs');
+					user.articles[i] = { _id: req.params.post_id, title:req.body.title, body:req.body.body, origAuthor:req.body.origAuthor, editAuthor:req.body.author};
+					user.save(function(err) {
+						res.send(user);
+					});	
 				};
 			};
 		});
 	});
 });
+
 
 module.exports = router;

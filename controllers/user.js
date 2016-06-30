@@ -1,8 +1,9 @@
 var express = require('express');
 var router  = express.Router();
 var bcrypt  = require('bcrypt');
-var User    = require('../Models/users.js');
-
+var User    = require('../models/users.js');
+var Article = require('../models/users.js');
+var Categories = require('../models/categories.js');
 // User Show page route
 
 router.get('/:id', function(req,res) {
@@ -26,7 +27,19 @@ router.get('/:id/main', function(req,res) {
 
 
 
-
+router.get('/:id/:categories', function(req,res) {
+	User.findById(req.params.id, function(err, user) {
+		Article.find(req.params.categories, function(err,category) {
+			res.send({
+				data: category
+			});
+			// res.render('users/categories.ejs', {
+			// 	data: user,
+			// 	articles: category
+			// });
+		});
+	});
+});
 
 
 

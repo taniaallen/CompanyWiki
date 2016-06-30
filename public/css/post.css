@@ -2,6 +2,11 @@
 	margin: 0;
     padding: 0;
 	font-family: Cabin, sans-serif;
+	text-align: center;
+}
+
+button {
+	padding: 4px 10px;
 }
 
 .banner {
@@ -19,22 +24,40 @@
 .preview-container {
 	background: #f0f0e1;
 	border-radius: 10%;
-	width: 90%;
+	width: 75%;
 	margin: auto;
+	padding: 1%;
 
 }
 
 .preview-title {
 	text-align: center;
 	font-weight: bold;
-	padding-bottom: 2%;
+	padding-bottom: 5%;
 }
 
 .preview-section {
-	padding-left: 2%;
+	
 }
 
 .form-container {
+	display: inline-block;
+	margin-top: 5%;
 
-	
+}
+
+#category-title {
+	text-align: left;
+	padding:2% 0 4% 0;
+}
+
+
+.categories {
+	display: block;
+	text-align: left;
+}
+
+
+#title-bar {
+	width: 50%;
 }

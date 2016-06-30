@@ -4,6 +4,9 @@ var methodOverride = require('method-override');
 var bcrypt         = require('bcrypt');
 var mongoose       = require('mongoose');
 var session        = require('express-session');
+var marked         = require('marked');
+
+
 
 
 /* app settings  */

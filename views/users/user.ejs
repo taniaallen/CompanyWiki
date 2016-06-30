@@ -1,17 +1,25 @@
 <html>
 <head>
-	<title></title>
+	<link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="/css/show.css">
 </head>
 <body>
-	<h1><%=data.author%>'s' Posted Articles</h1>
+	<header class='banner'>
+		<h3>Fullstack Force Wiki</h3>
+	</header>
 
-	<div>
+	<div class="header-container">
+		<h1>Your Posted Articles</h1>
+	</div>
+
+	<div class="article-list">
 		<% for(var i = 0; i < data.articles.length; i++) { %>
 			<a href="/posts/<%=data._id%>/show/<%=data.articles[i]._id%>"><li><%=data.articles[i].title%></li></a>
 		<% } %>
-
 	</div>
+
 	<br/>
+	<a href="/posts/<%=data._id%>/new"><button>Create Post</button></a>
 	<a href="/users/<%=data._id%>/main"><button>Main Page</button></a>
 </body>
 </html>

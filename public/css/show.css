@@ -1,0 +1,30 @@
+* {
+	margin: 0;
+    padding: 0;
+	font-family: Cabin, sans-serif;
+	text-align: center;
+}
+
+button {
+	padding: 3px 10px;
+}
+
+li {
+	list-style-type: circle;
+}
+
+.banner {
+	font-size: 1.3em;
+	background: url(http://bushmedia.com.au/wp-content/uploads/2014/08/bushmedia-background.png);
+    background-position: center;
+    background-size: cover;
+    padding: 5%;
+}
+.header-container {
+	text-align: center;
+	padding: 5%;
+}
+
+.article-list {
+	text-align: left;
+}

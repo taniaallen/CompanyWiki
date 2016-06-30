@@ -12,12 +12,12 @@
 </div>
 	<div class="category-container">
 		<h3>Post Categories</h3>
-		<select id="dataset-select">
+		<select id="dataset-select" onChange="window.location.href=this.value">
 			<option value="no_id" />Choose Category</option>
-			<option value="Best Practices"/>Best Practices</option>
-			<option value="Regulatory"/>Regulatory</option>
-			<option value="Enhancements"/>Enhancements</option>
-
+			<option value="/users/<%=data._id%>/categories"/>Best Practices</option>
+			<option value="/users/<%=data._id%>/categories"/>Regulatory</option>
+			<option value="/users/<%=data._id%>/categories"/>Enhancements</option>
+			<input type="hidden" name="categories" value="Norway">
 		</select>
 	</div>
 
