@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title></title>
+	<link href='https://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="/css/post.css">
+</head>
+<body>
+	<header class='banner'>
+		<h3>Fullstack Force Wiki</h3>
+	</header>
+
+	<div class="header-container">
+		<h1>Edit Post</h1>
+	</div>
+	<h3>Original Post Preview:</h3>
+	<div class="preview-container">
+		<h4 class="preview-title"><%=article.title%></h4>
+		<section class="preview-section"><%=article.body%></section>
+	</div>
+
+	<div class="form-container">
+		<form action="/posts/<%=data._id%>/edit?_method" method="POST">
+			<input type="text" name="title" value="<%=article.title%>"><br/>		
+			<textarea name="body" value="body" rows=30 cols=50></textarea><br/>
+			<div class="categories">
+				<input type="checkbox" name="categories" value="Best Practices">Best Practices<br/>
+				<input type="checkbox" name="categories" value="Regulatory">Regulatory<br/>
+				<input type="checkbox" name="categories" value="Enhancements">Enhancements<br/>
+			</div>
+
+			<br/>
+			<input type="hidden" name="origAuthor" value="<%=data.author%>"><br/>
+			<input type="hidden" name="editAuthor" value="<%=data.author%>"><br/>
+			<input type="submit" value="Submit Post">
+		</form>
+	</div>
+
+</body>
+</html>

@@ -26,7 +26,9 @@ router.post('/:id/new', function(req,res) {
 	User.findById(req.params.id, function(err,user) {
 		
 		Article.create(req.body, function(err,post) {
-			
+			Category.create({categories:post.categories, articles:[post]}, function(err,category) {
+
+			});
 			user.articles.push(post);
 			user.save(function(err) {
 				res.render('posts/show.ejs', {
@@ -68,7 +70,32 @@ router.get('/:id/main', function(req,res) {
 
 
 
+// Route to the edit post page
+
+router.get('/:id/edit/:post_id', function(req,res) {
+	User.findById(req.params.id, function(err, user) {
+		Article.findById(req.params.post_id, function(err, post) {
+			res.render('posts/edit.ejs', {
+				data: user,
+				article: post
+			});
+		});
+	});
+});
 
 
+router.put('/:id/edit/:post_id', function(req,res) {
+	Article.findByIdAndUpdate(req.params.post_id, function(err, post) {
+		User.findById(req.params.id, function(err, user) {
+			for(var i = 0; i < user.articles.length; i++) {
+				if(user.articles[i].id === req.params.post_id) {
+					user.articles[i] = { _id: req.params.post_id, title:req.body.title, body:req.body.body, origAuthor:req.body.origAuthor, editAuthor:req.body.author,  }
+				} else{
+					res.redirect('posts/edit.ejs');
+				};
+			};
+		});
+	});
+});
 
 module.exports = router;
