@@ -7,21 +7,7 @@ var bcrypt  = require('bcrypt');
 
 
 
-// Login action for existing users
-// if username and password exists, go to the main page, else redirect to the login/ New User page
 
-router.post('/', function(req,res) {
-		User.findOne({username:req.body.username}, function(err, foundUser) {
-		if(bcrypt.compareSync(req.body.password, foundUser.password)) {
-			req.session.loggedInUsername = foundUser.username;
-			res.render('users/main.ejs', {
-				data: foundUser
-			});
-		} else {
-			res.redirect('login/newuser');
-		};
-	});
-});
 
 
 
@@ -41,7 +27,21 @@ router.post('/newuser', function(req,res) {
 });
 
 
+// Login action for existing users
+// if username and password exists, go to the main page, else redirect to the login/ New User page
 
+router.post('/', function(req,res) {
+		User.findOne({username:req.body.username}, function(err, foundUser) {
+		if(bcrypt.compareSync(req.body.password, foundUser.password)) {
+			req.session.loggedInUsername = foundUser.username;
+			res.render('users/main.ejs', {
+				data: foundUser
+			});
+		} else {
+			res.redirect('login/newuser');
+		};
+	});
+});
 
 
 
