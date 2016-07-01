@@ -52,6 +52,58 @@ router.get('/:id/show/:post_id', function(req,res) {
 	});
 });
 
+// Update the article in the edit page
+
+router.put('/:id/edit/:post_id', function(req,res) {
+	User.findById(req.params.id, function(err, user) {
+		console.log(user);
+		Article.findByIdAndUpdate(req.params.post_id, function(err, post) {
+			for(var i = 0; i < user.articles.length; i++) {
+				if(user.articles[i].id == req.params.post_id) {
+					user.articles[i] = post;
+					user.save(function(err) {
+						res.render('posts/show.ejs', {
+							data: user,
+							articles: post
+						});
+					});
+				};
+			};
+		});
+	});
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 	Article.findByIdAndUpdate(req.params.post_id, req.body, { new:true }, function(err, post) {
+// 		User.findById(req.params.id, function(err, user) {
+// 			for(var i = 0; i < user.articles.length; i++) {
+// 				if(user.articles[i]._id === post._id) {
+// 					// user.articles[i] = {title:req.body.title, body:req.body.body, origAuthor:req.body.origAuthor, editAuthor:req.body.author};
+// 					user.articles[i] = post;
+// 					user.save(function(err) {
+// 						res.redirect('posts/show.ejs', {
+// 							article: post
+// 						});
+// 					});	
+// 				};
+// 			};
+// 		});
+// 	});
+// });
 
 // Route to go back to the main page from the post show page when clicking the "main page" button
 
@@ -78,23 +130,6 @@ router.get('/:id/edit/:post_id', function(req,res) {
 	});
 });
 
-// Update the article in the edit page
-
-router.put('/:id/edit/:post_id', function(req,res) {
-	Article.findByIdAndUpdate(req.params.post_id, req.body, { new:true }, function(err, post) {
-
-		User.findById(req.params.id, function(err, user) {
-			for(var i = 0; i < user.articles.length; i++) {
-				if(user.articles[i].id === req.params.post_id) {
-					user.articles[i] = { _id: req.params.post_id, title:req.body.title, body:req.body.body, origAuthor:req.body.origAuthor, editAuthor:req.body.author};
-					user.save(function(err) {
-						res.send(user);
-					});	
-				};
-			};
-		});
-	});
-});
 
 
 module.exports = router;

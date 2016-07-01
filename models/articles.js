@@ -1,18 +1,16 @@
-var mongoose = require('mongoose');
-// var categorySchema = require('./categories.js').schema;
+var mongoose   = require('mongoose');
+var timestamps = require('mongoose-timestamp');
 
 
 var articleSchema = mongoose.Schema({
 	title: String,
 	body: String,
 	origAuthor: String,
-	origDate: Date,
 	editAuthor: String,
-	editDate: Date,
 	categories: []
 });
 
-
+articleSchema.plugin(timestamps);
 var Article = mongoose.model('Article', articleSchema);
 
 

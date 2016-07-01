@@ -19,13 +19,13 @@
 	</div>
 
 	<div class="form-container">
-		<form action="/posts/<%=data._id%>/edit/<%=data.articles._id%>" method="POST">
+		<form method="POST" action="/posts/<%=data._id%>/edit/<%=article._id%>?_method=PUT" >
 			<label for="title">Enter a title:</label>
 			<input id="title-bar" type="text" name="title" value="<%=article.title%>"><br/>		
 			<textarea name="body" value="body" placeholder="<%=data.articles.body%>" rows=30 cols=100></textarea><br/>
 			<h4 id="category-title">Select a Category</h4>
 			<div class="categories">
-				<input type="checkbox" name="categories" value="Best Practices">Best Practices
+				<input type="checkbox" name="categories" value="Best-Practices">Best Practices
 				<input type="checkbox" name="categories" value="Regulatory">Regulatory
 				<input type="checkbox" name="categories" value="Enhancements">Enhancements
 			</div>

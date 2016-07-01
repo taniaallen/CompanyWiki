@@ -9,13 +9,12 @@
 	</header>
 
 	<div class="header-container">
-		<h1>Articles under <%=articles.category%></h1>
+		<h1>Articles under <%=data%></h1>
 	</div>
 
 	<div class="article-list">
-		<% for(var i = 0; i < data.articles.length; i++) { %>
-			<a href="/posts/<%=data._id%>/show/<%=data.articles[i]._id%>"><li><%=data.articles[i].title%></li></a>
-		<% } %>
+		<% for(var i = 0; i < data.length; i++) { %>
+			<a href="/posts/<%=data._id%>/show/<%=data.articles[i]._id%>"><li><%=articles[i].title%></li></a>
 	</div>
 
 	<br/>

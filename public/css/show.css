@@ -11,6 +11,7 @@ button {
 
 li {
 	list-style-type: circle;
+	padding-left: 2%;
 }
 
 .banner {
@@ -26,5 +27,18 @@ li {
 }
 
 .article-list {
+	text-align: left;
+}
+
+.article-section {
+	background: #f0f0e1;
+	border-radius: 10%;
+	width: 75%;
+	margin: auto;
+	margin-bottom: 3%;
+	padding: 1%;
+}
+
+.article-info {
 	text-align: left;
 }

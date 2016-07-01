@@ -3,9 +3,10 @@ var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 var bcrypt         = require('bcrypt');
 var mongoose       = require('mongoose');
+var timestamps     = require('mongoose-timestamp');
 var session        = require('express-session');
 var marked         = require('marked');
-
+var Article        = require('./Models/articles.js');
 
 
 
@@ -22,9 +23,9 @@ app.use(session({
 
 
 /*  db  */
-userController  = require('./Controllers/user.js');
-loginController = require('./Controllers/login.js');
-postController  = require('./Controllers/post.js');
+userController  = require('./controllers/user.js');
+loginController = require('./controllers/login.js');
+postController  = require('./controllers/post.js');
 
 
 
@@ -34,6 +35,7 @@ postController  = require('./Controllers/post.js');
 /* Middleware  */
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended:false }));
+app.use(methodOverride('_method'));
 
 app.use('/login', loginController);
 app.use('/users', userController);
@@ -43,6 +45,14 @@ app.use('/posts', postController);
 
 app.get('/', function(req,res) {				// tested the route.
 	res.render('login/login.ejs');
+});
+
+app.get('/articlesByCategory', function(req, res){
+	var categoryToFind  = req.params.value;
+	console.log(categoryToFind);
+	Article.find({categories: categoryToFind}, function(err,posts) {
+		res.send(posts);
+	});
 });
 
 
