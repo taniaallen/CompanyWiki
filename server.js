@@ -47,13 +47,13 @@ app.get('/', function(req,res) {				// tested the route.
 	res.render('login/login.ejs');
 });
 
-app.get('/articlesByCategory', function(req, res){
-	var categoryToFind  = req.params.value;
-	console.log(categoryToFind);
-	Article.find({categories: categoryToFind}, function(err,posts) {
-		res.send(posts);
-	});
-});
+// app.get('/articlesByCategory', function(req, res){
+// 	var categoryToFind  = req.params.value;
+// 	console.log(categoryToFind);
+// 	Article.find({categories: categoryToFind}, function(err,posts) {
+// 		res.send(posts);
+// 	});
+// });
 
 
 
