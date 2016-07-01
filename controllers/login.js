@@ -1,6 +1,6 @@
 var express = require('express');
 var router  = express.Router();
-var User    = require('../Models/users.js');
+var User    = require('../models/users.js');
 var bcrypt  = require('bcrypt');
 
 // Login page will have a get request for when the user submits their username and password

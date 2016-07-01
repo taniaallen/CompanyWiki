@@ -1,8 +1,8 @@
 var express  = require('express');
 var router   = express.Router();
-var User     = require('../Models/users.js');
-var Article  = require('../Models/articles.js');
-var Category = require('../Models/categories.js');
+var User     = require('../models/users.js');
+var Article  = require('../models/articles.js');
+var Category = require('../models/categories.js');
 var bodyParser = require('body-parser');
 
 // New post page

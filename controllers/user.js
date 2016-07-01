@@ -1,8 +1,8 @@
 var express = require('express');
 var router  = express.Router();
 var bcrypt  = require('bcrypt');
-var User    = require('../Models/users.js');
-var Article = require('../Models/articles.js');
+var User    = require('../models/users.js');
+var Article = require('../models/articles.js');
 // User Show page route
 
 router.get('/:id', function(req,res) {
